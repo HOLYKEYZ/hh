@@ -45,36 +45,40 @@ const TrackerPage = () => {
         </div>
 
         <div className="p-8">
-            <div className="mb-8">
                 <label className="block text-sm font-semibold text-gray-700 mb-2 uppercase tracking-wide">
                     Your Valentine Link
                 </label>
-                <div className="flex gap-2">
-                    <input 
-                        readOnly 
-                        value={valentineLink} 
-                        className="flex-1 bg-gray-50 border border-gray-200 text-gray-600 text-sm rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-500"
-                    />
-                    <button 
-                        onClick={copyLink}
-                        className="p-3 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 transition-colors"
-                        title="Copy"
-                    >
-                        <Copy className="w-5 h-5" />
-                    </button>
+                <div className="flex flex-col gap-3">
+                    <div className="flex gap-2">
+                        <input 
+                            readOnly 
+                            value={valentineLink} 
+                            className="flex-1 bg-gray-50 border border-gray-200 text-gray-600 text-sm rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-500"
+                        />
+                        <button 
+                            onClick={copyLink}
+                            className="px-4 py-3 bg-gray-100 text-gray-700 font-medium rounded-lg hover:bg-gray-200 transition-colors flex items-center gap-2"
+                            title="Copy Link"
+                        >
+                            <Copy className="w-5 h-5" />
+                            <span>Copy</span>
+                        </button>
+                    </div>
+                    
                     <a 
                         href={valentineLink}
                         target="_blank"
-                        className="p-3 bg-pink-100 text-pink-600 rounded-lg hover:bg-pink-200 transition-colors"
-                        title="Open"
+                        className="w-full py-3 bg-pink-50 text-pink-600 font-bold rounded-lg hover:bg-pink-100 transition-colors flex items-center justify-center gap-2 border border-pink-200"
                     >
                         <ExternalLink className="w-5 h-5" />
+                        <span>Preview Card (See what they see)</span>
                     </a>
                 </div>
-                <p className="text-xs text-gray-500 mt-2">
-                    Send this link to your valentine. Do not share this tracker page!
+                <p className="text-xs text-gray-500 mt-3">
+                    <strong>Step 1:</strong> Copy the link above.<br/>
+                    <strong>Step 2:</strong> Send it to your valentine.<br/>
+                    <strong>Step 3:</strong> Wait on this page to see their answer!
                 </p>
-            </div>
 
             <div className="border-t border-gray-100 pt-8 text-center">
                 <h3 className="text-gray-900 font-semibold mb-4">Current Status</h3>
@@ -100,8 +104,17 @@ const TrackerPage = () => {
                 )}
             </div>
             
-            <div className="mt-8 text-center text-gray-400 text-sm">
-                Status updates automatically every 5 seconds.
+            <div className="mt-8 pt-6 border-t border-gray-100 flex flex-col gap-4 text-center">
+                <Link 
+                    to="/" 
+                    className="inline-flex items-center justify-center gap-2 text-gray-500 hover:text-gray-700 font-medium transition-colors"
+                >
+                    <Heart className="w-4 h-4" />
+                    <span>Create Another Card</span>
+                </Link>
+                <span className="text-xs text-gray-400">
+                    Status updates automatically every 5 seconds.
+                </span>
             </div>
         </div>
       </div>
